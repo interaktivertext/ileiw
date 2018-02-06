@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang = "de-DE">
+<head>
+     <!-- ICH L&Uuml;GE ES IST WAHR -->
+     <title>ICH L&Uuml;GE ES IST WAHR</title>
+     <meta charset = "ISO-8859-1" />
+     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "auaextern_CSS.css" />
+
+
+  <script type = "text/javascript"
+          src = "jquery-1.3.2.min.js"></script>
+
+
+  <script type = "text/javascript">
+    //<![CDATA[
+    $(init);
+
+    function init(){
+      sprite = document.getElementById("sprite");
+      document.onmousemove = mouseListener;
+      //$("#ichluege").hover(mouseListener);
+
+      $("#esistwahr").hover(move);
+
+      hgr = document.getElementById("hgr");
+            document.onclick = goToURL;
+    } // Ende init
+
+    function mouseListener(e){
+      if (!e){
+        e = window.event;
+      } // Ende IE-Sonderteil
+
+      //Breite und H�he erhalten
+      height = parseInt(sprite.style.height);
+      width = parseInt(sprite.style.width);
+
+      //das Tentrum des Sprites zur Maus verschieben
+      x = e.pageX - (width/2);
+      y = e.pageY - (height/2);
+
+      sprite.style.left = x + "px";
+      sprite.style.top = y + "px";
+    } // Ende function
+
+
+    //$(function(){
+        //$("#esistwahr").hover(function(){
+            //$("#esistwahr").replaceWith("#ichluege");
+            //$("#ichluege").replaceWith("#esistwahr");
+        //});
+    //});
+
+
+        function move(){
+          $("#esistwahr").css("left", "500px")
+          .css("top", "200px");
+          $("#ichluege").css("left", "900px")
+          .css("top", "500px");
+        } // Ende move
+
+
+        function goToURL() {
+          location.href = "ambivalenz+aufl&ouml;sung.html";
+        }
+
+    //]]>
+  </script>
+
+
+ </head>
+
+
+ <body id = "hgr">
+
+     <div id = "sprite"
+     style = "position: absolute;
+              left: 0px;
+              top: 0px;
+              width: 1100px;
+              height: 480px;">
+          <p id = "ichluege"
+             class = "bold sans big center textfh">
+                    ICH L&Uuml;GE
+          </p>
+     </div>
+
+
+     <p id = "esistwahr"
+        class = "bold sans big center textfh">
+                       ES IST WAHR
+  </p>
+
+
+ </body>
+</html>
